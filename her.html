@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Changing Message</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+        }
+        .fade-in-text {
+            color: #ff4d88;
+            font-size: 2em;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+            max-width: 600px;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            animation: fadeOutOverlay 2s forwards;
+        }
+        .options {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 2s forwards;
+        }
+        .follow-up-text {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 2em;
+            color: #ff4d88;
+            display: none;
+            animation: fadeIn 2s forwards;
+            max-width: 600px;
+        }
+        .options-follow-up {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s forwards;
+        }
+        .final-text {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 2em;
+            color: #ff4d88;
+            display: none;
+            animation: fadeIn 2s forwards;
+            max-width: 600px;
+        }
+        .options-final {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s forwards;
+        }
+        .extra-text {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 2em;
+            color: #ff4d88;
+            display: none;
+            animation: fadeIn 2s forwards;
+            max-width: 600px;
+        }
+        .options-extra {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s forwards;
+        }
+        .text-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+            color: #ff4d88;
+            text-align: center;
+            display: none;
+            animation: fadeIn 2s forwards;
+            max-width: 600px;
+        }
+        .heart-page {
+            background-color: #ffb3c6;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #ff4d88;
+            font-size: 2em;
+            animation: fadeIn 2s forwards;
+        }
+        
+        
+        .heart:before {
+            top: -20px;
+            left: 0;
+        }
+        .heart:after {
+            left: -20px;
+            top: 0;
+        }
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(5deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(5deg);
+                opacity: 0;
+            }
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff4d88;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #e63970;
+        }
+        #no-button, #no-button-follow-up, #no-button-final {
+            position: relative;
+        }
+        .final-heart {
+            margin-top: 30px;
+            width: 50px;
+            height: 50px;
+            background: #ff4d88;
+            transform: rotate(5deg);
+            position: relative;
+        }
+        .final-heart:before, .final-heart:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff4d88;
+            border-radius: 50%;
+        }
+        .final-heart:before {
+            top: -25px;
+            left: 0;
+        }
+        .final-heart:after {
+            left: -25px;
+            top: 0;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOutOverlay {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="fade-in-text" id="intro-text">hi sayangggg, welcome to the life changing thing that I said last time</div>
+    <div class="options" id="options">
+        <button onclick="yesClicked()">yes what is it?</button>
+        <button id="no-button" onmouseover="runAway()">no I don't wanna know</button>
+    </div>
+    <div class="follow-up-text" id="follow-up-text">are you ready love?</div>
+    <div class="options-follow-up" id="options-follow-up">
+        <button onclick="finalYesClicked()">yes</button>
+        <button id="no-button-follow-up" onmouseover="runAwayFollowUp()">no I don't wanna know</button>
+    </div>
+    <div class="final-text" id="final-text">are you sure you are ready love?</div>
+    <div class="options-final" id="options-final">
+        <button onclick="extraYesClicked()">yes baby im sureee</button>
+        <button id="no-button-final" onmouseover="runAwayFinal()">no baby i dowan</button>
+    </div>
+    <div class="extra-text" id="extra-text">well baby...</div>
+    <div class="options-extra" id="options-extra">
+        <button onclick="nextTextClicked()">yes baby?</button>
+    </div>
+    <div class="text-box" id="next-text-box">
+        you know that I have been holding this thought for quite a long time already but I think now is the right time to ask you since we are here together physically, and i wanna ask you... ❤️
+        <div class="options-final" id="options-next">
+            <button onclick="specialPageClicked()">yes ask me what love?</button>
+        </div>
+    </div>
+    <div class="heart-page" id="heart-page" style="display: none;">
+        <div>will you officially be my one and only? ❤️</div>
+        
+    </div>
+    <script>
+        function revealOptions() {
+            document.getElementById("options").style.display = "block";
+        }
+
+        setTimeout(revealOptions, 5000);
+
+        function yesClicked() {
+            document.getElementById("intro-text").style.display = "none";
+            document.getElementById("options").style.display = "none";
+            document.getElementById("follow-up-text").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("options-follow-up").style.display = "block";
+            }, 1000);
+        }
+
+        function finalYesClicked() {
+            document.getElementById("follow-up-text").style.display = "none";
+            document.getElementById("options-follow-up").style.display = "none";
+            document.getElementById("final-text").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("options-final").style.display = "block";
+            }, 1000);
+        }
+
+        function extraYesClicked() {
+            document.getElementById("final-text").style.display = "none";
+            document.getElementById("options-final").style.display = "none";
+            document.getElementById("extra-text").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("options-extra").style.display = "block";
+            }, 1000);
+        }
+
+        function nextTextClicked() {
+            document.getElementById("extra-text").style.display = "none";
+            document.getElementById("options-extra").style.display = "none";
+            document.getElementById("next-text-box").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("options-next").style.display = "block";
+            }, 1000);
+        }
+
+        function specialPageClicked() {
+            document.getElementById("next-text-box").style.display = "none";
+            document.getElementById("heart-page").style.display = "flex";
+            createHearts();
+        }
+
+        function runAway() {
+            const noButton = document.getElementById("no-button");
+            const randomX = Math.floor(Math.random() * 300) - 150;
+            const randomY = Math.floor(Math.random() * 300) - 150;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function runAwayFollowUp() {
+            const noButton = document.getElementById("no-button-follow-up");
+            const randomX = Math.floor(Math.random() * 300) - 150;
+            const randomY = Math.floor(Math.random() * 300) - 150;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function runAwayFinal() {
+            const noButton = document.getElementById("no-button-final");
+            const randomX = Math.floor(Math.random() * 300) - 150;
+            const randomY = Math.floor(Math.random() * 300) - 150;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function createHearts() {
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.textContent = '❤️';
+        heart.style.position = 'absolute';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.bottom = '-50px';
+        heart.style.fontSize = '2em';
+        heart.style.animation = `floatHeartEmoji ${4 + Math.random() * 3}s ease-in-out forwards`;
+        document.getElementById('heart-page').appendChild(heart);
+    }
+}
+
+function floatHeartEmoji() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes floatHeartEmoji {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+floatHeartEmoji();
+
+
+
+    
+    </script>
+</body>
+</html>
